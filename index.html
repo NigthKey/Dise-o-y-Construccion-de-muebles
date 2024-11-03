@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño y Construcción de Muebles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #6a0dad; /* Fondo morado */
+            color: #000000; /* Letra negra */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh; /* Altura total de la ventana */
+            justify-content: center; /* Centrar verticalmente */
+            overflow: hidden; /* Ocultar el desplazamiento inicial */
+            position: relative; /* Para el reproductor de música */
+        }
+        .title {
+            text-align: center;
+            font-size: 3em;
+            color: #f0e4d7; /* Título en blanco hueso */
+            transition: opacity 1s ease; /* Transición de opacidad */
+            position: absolute; /* Para centrar verticalmente */
+            top: 40%; /* Ajusta para centrar verticalmente */
+            opacity: 1; /* Hacer visible */
+        }
+        .content {
+            max-width: 800px; /* Ancho máximo del contenedor */
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f0e4d7; /* Fondo blanco hueso para la información */
+            color: #000000; /* Letra negra para la información */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+            margin: 20px 0;
+            opacity: 0; /* Inicialmente oculto */
+            transition: opacity 1s ease; /* Transición de opacidad */
+            visibility: hidden; /* Ocultar el contenido inicialmente */
+            position: relative; /* Para la animación de entrada */
+            top: 20px; /* Desplazado hacia abajo para la animación */
+            text-align: center; /* Centrar texto dentro del contenedor */
+        }
+        .video-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        h2 {
+            margin-top: 40px; /* Margen superior para el título del video */
+        }
+        .audio-controls {
+            position: fixed; /* Fijo en la esquina inferior derecha */
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+            border: 1px solid #000; /* Borde negro */
+            border-radius: 5px; /* Bordes redondeados */
+            padding: 10px; /* Espaciado interno */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+        }
+        .audio-controls button {
+            cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="title">DISEÑO Y CONSTRUCCIÓN DE MUEBLES</div>
+    <div class="content" id="content">
+        <p>Diseño y Construcción de Muebles: Este campo se centra en la creación de piezas de mobiliario que combinan funcionalidad y estética, considerando tanto la práctica como la apariencia. El proceso comienza con la fase de diseño, donde se desarrollan bocetos y modelos digitales, utilizando software especializado para visualizar el producto final. Aquí se consideran factores como la ergonomía, la durabilidad y el uso eficiente del espacio.</p>
+
+        <p>En la construcción, se eligen materiales adecuados, como diferentes tipos de madera, metal, vidrio o plástico, dependiendo del estilo deseado y el uso del mueble. Las técnicas de ensamblaje varían desde uniones tradicionales como espigas y mortajas hasta métodos más modernos como el uso de tornillos o adhesivos.</p>
+
+        <p>El acabado es crucial, ya que no solo protege el mueble, sino que también realza su aspecto. Las opciones incluyen pintura, lacado, aceitado o encerado, cada uno aportando un carácter único a la pieza. Además, el diseño y la construcción de muebles pueden ser personalizados para satisfacer las necesidades específicas de los clientes, lo que implica una comunicación cercana entre el diseñador y el consumidor para garantizar que se cumplan las expectativas.</p>
+
+        <p>En resumen, el diseño y construcción de muebles es una disciplina que equilibra creatividad y técnica, resultando en piezas que son tanto artísticas como útiles en el hogar o en espacios comerciales.</p>
+    </div>
+
+    <div class="video-container">
+        <h2>Video de Presentación</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/m_NLMPU3YaU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <audio id="background-audio" src="https://files.catbox.moe/oegtyy.mp3" loop></audio>
+
+    <div class="audio-controls">
+        <button id="play-button">Reproducir Música</button>
+        <button id="pause-button" style="display:none;">Pausar Música</button>
+    </div>
+
+    <script>
+        // Función para mostrar el contenido al desplazarse
+        window.addEventListener('scroll', function() {
+            const content = document.getElementById('content');
+            const contentPosition = content.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2; // Ajusta para que aparezca un poco antes
+
+            if (contentPosition < screenPosition) {
+                content.style.opacity = '1';
+                content.style.visibility = 'visible';
+                content.style.top = '0'; // Regresar a la posición original
+            }
+        });
+
+        // Control de música
+        const audio = document.getElementById('background-audio');
+        const playButton = document.getElementById('play-button');
+        const pauseButton = document.getElementById('pause-button');
+
+        playButton.addEventListener('click', function() {
+            audio.play();
+            playButton.style.display = 'none';
+            pauseButton.style.display = 'inline';
+        });
+
+        pauseButton.addEventListener('click', function() {
+            audio.pause();
+            playButton.style.display = 'inline';
+            pauseButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
 
