@@ -17,6 +17,7 @@
             height: 100vh; /* Altura total de la ventana */
             justify-content: center; /* Centrar verticalmente */
             overflow: hidden; /* Ocultar el desplazamiento inicial */
+            position: relative; /* Para el reproductor de música */
         }
         .title {
             text-align: center;
@@ -46,6 +47,16 @@
         h2 {
             margin-top: 40px; /* Margen superior para el título del video */
         }
+        /* Estilos para el reproductor de música */
+        .audio-player {
+            position: absolute; /* Colocar en la esquina inferior derecha */
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
@@ -63,6 +74,14 @@
     <div class="video-container">
         <h2>Video de Presentación</h2>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/m_NLMPU3YaU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Reproductor de audio -->
+    <div class="audio-player">
+        <audio controls autoplay loop>
+            <source src="https://files.catbox.moe/oegtyy.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
     </div>
 
     <script>
