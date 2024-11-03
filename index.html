@@ -8,6 +8,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            position: relative;
         }
         .header {
             background-color: #6a0dad; /* Fondo morado */
@@ -27,6 +28,16 @@
         .video-container {
             text-align: center;
             margin-top: 20px;
+        }
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 5px;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -67,6 +78,12 @@
         </div>
     </div>
 
+    <div class="music-player">
+        <audio controls>
+            <source src="https://files.catbox.moe/oegtyy.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+
 </body>
 </html>
-
